@@ -6,7 +6,7 @@ class Fetcher:
         self.base_url = base_url
         self.headers = headers
 
-    def fetch():
+    def fetch(self):
         r = requests.get(self.base_url, headers=self.headers)
         if r.status_code == 200:
             return r 
