@@ -1,0 +1,11 @@
+[project]
+name = "movie-tracker-cli"
+version = "0.1.0"
+description = "CLI movie tracker using TMDB API"
+requires-python = ">=3.10"
+
+dependencies = [
+    "requests",
+    "python-dotenv",
+    "rich"
+]
