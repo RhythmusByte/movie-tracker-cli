@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+movie_tracker_cli.egg-info/PKG-INFO
+movie_tracker_cli.egg-info/SOURCES.txt
+movie_tracker_cli.egg-info/dependency_links.txt
+movie_tracker_cli.egg-info/requires.txt
+movie_tracker_cli.egg-info/top_level.txt
