@@ -8,6 +8,7 @@ API_KEY = os.getenv('API_KEY')
 
 
 url = "https://api.themoviedb.org/3/trending/all/day?language=en-US"
+# url = "https://api.themoviedb.org/3/trending/movie/day?language=en-US"
 
 headers = {
     "accept": "application/json",
@@ -20,7 +21,9 @@ class Movie(Fetcher):
         
     def data(self):
         self.data = self.fetch()
-        print(self.data.text)
+        return self.data
 
 m = Movie()
-m.data()
+data = m.data()
+
+print(data['results'])
