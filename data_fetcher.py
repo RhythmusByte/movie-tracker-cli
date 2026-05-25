@@ -9,6 +9,6 @@ class Fetcher:
     def fetch(self):
         r = requests.get(self.base_url, headers=self.headers)
         if r.status_code == 200:
-            return r 
+            return r.json()
         else:
             r.raise_for_status()
