@@ -34,5 +34,15 @@ class TrendingList(Fetcher):
         self.data = self.fetch()
         return self.data
 
+    def show_list(self, result_data):
+        self.result_data = result_data
 
+        for index, movies in enumerate(self.result_data):
+            if "name" in self.result_data[index]:
+                print(f"{index+1}: {self.result_data[index]['name']}")
+            elif "title" in self.result_data[index]:
+                print(f"{index+1}: {self.result_data[index]['title']}")
+            else:
+                print("[red]Something went wrong[/red]")
+                
     
