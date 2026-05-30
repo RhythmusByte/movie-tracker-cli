@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: movie-tracker-cli
+Version: 0.1.0
+Summary: CLI movie tracker using TMDB API
+Requires-Python: >=3.10
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: python-dotenv
+Requires-Dist: rich
+Dynamic: license-file
