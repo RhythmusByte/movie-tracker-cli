@@ -10,9 +10,16 @@ trending_all_url = "https://api.themoviedb.org/3/trending/all"
 trending_movies_url = 'https://api.themoviedb.org/3/trending/movie'
 trending_tv_url = "https://api.themoviedb.org/3/trending/tv"
 
+banner = """
+┌─────────────────────────┐
+│ Movie Tracker CLI       │
+│ Track • Discover • List │
+└─────────────────────────┘
+"""
+
 def menu():
     while True:
-        print("-- Movie Tracker v0.2 --")
+        print(f"\n{banner}")
         print()
         print("1. Trending All (Movies + TV mixed list)")
         print("2. Trending Movies")
