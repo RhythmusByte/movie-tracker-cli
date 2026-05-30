@@ -1,29 +1,24 @@
 import requests
 from dotenv import load_dotenv
 import os
-from src.Fetcher import Fetcher
+from src.TrendingList import TrendingList
 
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
 
+trending_all_url = "https://api.themoviedb.org/3/trending/all"
+trending_movies_url = 'https://api.themoviedb.org/3/trending/movie'
+trending_tv_url = "https://api.themoviedb.org/3/trending/tv/"
 
-url = "https://api.themoviedb.org/3/trending/all/day?language=en-US"
-# url = "https://api.themoviedb.org/3/trending/movie/day?language=en-US"
+tm = TrendingList(trending_movies_url)
+ta = TrendingList(trending_all_url)
+tt = TrendingList(trending_tv_url)
 
-headers = {
-    "accept": "application/json",
-    "Authorization": f"Bearer {API_KEY}"
-}
+mv_data = tm.data()
+print(f"Movies: {mv_data['page']}")
 
-class Movie(Fetcher):
-    def __init__(self):
-        super().__init__(url, headers)
-        
-    def data(self):
-        self.data = self.fetch()
-        return self.data
+all_data = ta.data()
+print(f"All: {all_data['page']}")
 
-m = Movie()
-data = m.data()
-
-print(data['results'])
+tt_data = tt.data() 
+print(f"Series/TV: {tt_data['page']}")
