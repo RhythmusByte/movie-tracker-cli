@@ -1,7 +1,7 @@
 import os
 import requests
 from dotenv import load_dotenv
-from Fetcher import Fetcher
+from .Fetcher import Fetcher
 from rich import print
 
 load_dotenv()
