@@ -8,17 +8,42 @@ API_KEY = os.getenv('API_KEY')
 
 trending_all_url = "https://api.themoviedb.org/3/trending/all"
 trending_movies_url = 'https://api.themoviedb.org/3/trending/movie'
-trending_tv_url = "https://api.themoviedb.org/3/trending/tv/"
+trending_tv_url = "https://api.themoviedb.org/3/trending/tv"
 
-tm = TrendingList(trending_movies_url)
-ta = TrendingList(trending_all_url)
-tt = TrendingList(trending_tv_url)
+def menu():
+    while True:
+        print("-- Movie Tracker v0.2 --")
+        print()
+        print("1. Trending All (Movies + TV mixed list)")
+        print("2. Trending Movies")
+        print("3. Trending TV/Series")
+        print("4. Exit")
+        
+        choice = input("Enter your required list (eg: 2): ")
 
-mv_data = tm.data()
-print(f"Movies: {mv_data['page']}")
+        if choice in ["1", "2", "3", "4"]:
+            choice = int(choice)
 
-all_data = ta.data()
-print(f"All: {all_data['page']}")
+            if choice == 1:
+                ta = TrendingList(trending_all_url)
+                all_data = ta.data()
+                ta.show_list(all_data["results"])
 
-tt_data = tt.data() 
-print(f"Series/TV: {tt_data['page']}")
+            elif choice == 2:
+                tm = TrendingList(trending_movies_url)
+                mv_data = tm.data()
+                tm.show_list(mv_data["results"])
+
+            elif choice == 3:
+                tt = TrendingList(trending_tv_url)
+                tt_data = tt.data() 
+                tt.show_list(tt_data["results"])
+
+            elif choice == 4:
+                print("Have a nice day!")
+                break
+
+        else:
+            print("Invalid input, please enter a valid option.\n")
+
+menu()
